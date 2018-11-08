@@ -207,6 +207,11 @@ itransact:
 jetpay:
   login: TESTTERMINAL
 
+# Working credentials, no need to replace
+girosolution:
+  some_credential: SOMECREDENTIAL
+  another_credential: ANOTHERCREDENTIAL
+
 hdfc:
   login: LOGIN
   password: PASSWORD
