@@ -84,6 +84,7 @@ module ActiveMerchant #:nodoc:
         post = {}
         o = @options.merge(options)
         add_base_options(post, o)
+        add_charge_options(post, o)
         add_start_options(post, o)
         add_hmac_hash(post, o)
         commit('start', post)
@@ -93,6 +94,7 @@ module ActiveMerchant #:nodoc:
         post = {}
         o = merge_reference(reference)
         add_base_options(post, o)
+        add_charge_options(post, o)
         add_reference(post, o)
         add_hmac_hash(post, o)
         commit('capture', post)
@@ -102,6 +104,7 @@ module ActiveMerchant #:nodoc:
         post = {}
         o = merge_reference(reference)
         add_base_options(post, o)
+        add_charge_options(post, o)
         add_reference(post, o)
         add_hmac_hash(post, o)
         commit('refund', post)
@@ -110,7 +113,8 @@ module ActiveMerchant #:nodoc:
       def void(reference)
         post = {}
         o = merge_reference(reference)
-        add_void_options(post, o)
+        add_base_options(post, o)
+        add_reference(post, o)
         add_hmac_hash(post, o)
         commit('void', post)
       end
@@ -134,6 +138,9 @@ module ActiveMerchant #:nodoc:
         add_pair post, 'merchantId',   options[:merchant_id].to_s
         add_pair post, 'projectId',    options[:project_id].to_s
         add_pair post, 'merchantTxId', options[:merchant_tx_id].to_s
+      end
+
+      def add_charge_options(post, options)
         add_pair post, 'amount',       options[:amount].to_s
         add_pair post, 'currency',     options[:currency].to_s
       end
@@ -147,13 +154,6 @@ module ActiveMerchant #:nodoc:
         add_pair post, 'recurring',    options[:recurring].to_s
         add_pair post, 'urlRedirect',  options[:url_redirect].to_s
         add_pair post, 'urlNotify',    options[:url_notify].to_s
-      end
-
-      def add_void_options(post, options)
-        add_pair post, 'merchantId',   options[:merchant_id].to_s
-        add_pair post, 'projectId',    options[:project_id].to_s
-        add_pair post, 'merchantTxId', options[:merchant_tx_id].to_s
-        add_pair post, 'reference',    options[:reference].to_s
       end
 
       def add_reference(post, options)
