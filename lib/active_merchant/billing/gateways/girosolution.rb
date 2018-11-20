@@ -126,7 +126,7 @@ module ActiveMerchant #:nodoc:
 
       def merge_reference(reference)
         @options.merge(
-          {'reference' => reference}
+          {:reference => reference}
         )
       end
 
@@ -136,10 +136,10 @@ module ActiveMerchant #:nodoc:
         add_pair post, 'merchantTxId', options[:merchant_tx_id].to_s
         add_pair post, 'amount',       options[:amount].to_s
         add_pair post, 'currency',     options[:currency].to_s
-        add_pair post, 'purpose',      options[:purpose].to_s
       end
 
       def add_start_options(post, options)
+        add_pair post, 'purpose',      options[:purpose].to_s
         add_pair post, 'type',         options[:type].to_s
         add_pair post, 'locale',       options[:locale].to_s
         add_pair post, 'mobile',       options[:mobile].to_s
