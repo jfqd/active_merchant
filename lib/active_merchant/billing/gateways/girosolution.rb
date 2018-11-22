@@ -197,7 +197,7 @@ module ActiveMerchant #:nodoc:
       end
 
       def message_from(response)
-        response["message"]
+        response["msg"]
       end
 
       def authorization_from(response)
