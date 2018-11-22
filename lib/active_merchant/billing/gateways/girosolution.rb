@@ -10,13 +10,13 @@ module ActiveMerchant #:nodoc:
     #
     #  # get a payment gateway object, amount in cents
     #  gateway = ActiveMerchant::Billing::GirosolutionGateway.new(
-    #    merchant_id:     "5103056",
-    #    project_id:      "45490",
-    #    secret:          "vh293izPP7De",
+    #    merchant_id:     "your-merchant_id",
+    #    project_id:      "your-project_id",
+    #    secret:          "your-secret",
     #    merchant_tx_id:  "4711",
     #    amount:          "100",
     #    currency:        "EUR",
-    #    purpose:         "Ihr Alvito Einkauf 4711"
+    #    purpose:         "Ihr Einkauf"
     #  )
     #
     #  # start the transaction
@@ -26,8 +26,8 @@ module ActiveMerchant #:nodoc:
     #    mobile:          "1",
     #    pkn:             "create",
     #    recurring:       "0",
-    #    url_redirect:    "https://alvito.com/de/checkout/after-payment/",
-    #    url_notify:      "https://alvito.com/de/checkout/payment-update/"
+    #    url_redirect:    "https://example.com/de/checkout/after-payment/",
+    #    url_notify:      "https://example.com/de/checkout/payment-update/"
     #  )
     #
     #  puts response.success?       # Check whether the request was successful
