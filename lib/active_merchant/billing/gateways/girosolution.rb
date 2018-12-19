@@ -150,7 +150,11 @@ module ActiveMerchant #:nodoc:
         add_pair post, 'type',         options[:type].to_s
         add_pair post, 'locale',       options[:locale].to_s
         add_pair post, 'mobile',       options[:mobile].to_s
-        add_pair post, 'pkn',          options[:pkn].to_s
+        
+        if options[:pkn] != nil && options[:pkn] != ''
+          add_pair post, 'pkn',          options[:pkn].to_s
+        end
+        
         add_pair post, 'recurring',    options[:recurring].to_s
         add_pair post, 'urlRedirect',  options[:url_redirect].to_s
         add_pair post, 'urlNotify',    options[:url_notify].to_s
