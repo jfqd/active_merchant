@@ -20,12 +20,12 @@ Gem::Specification.new do |s|
   s.has_rdoc = true if Gem::VERSION < '1.7.0'
 
   s.add_dependency('activesupport', '>= 2.3.14', '< 5.0.0')
-  s.add_dependency('i18n', '~> 0.5')
+  s.add_dependency('i18n')
   s.add_dependency('money', '< 7.0.0')
   s.add_dependency('builder', '>= 2.1.2', '< 4.0.0')
-  s.add_dependency('json', '~> 1.7')
+  s.add_dependency('json')
   s.add_dependency('active_utils', '~> 2.0', '>= 2.0.1')
-  s.add_dependency('nokogiri', "~> 1.4")
+  s.add_dependency('nokogiri')
 
   s.add_development_dependency('rake')
   s.add_development_dependency('mocha', '~> 0.13.0')
